@@ -2,9 +2,9 @@
 """
 Classes for creating decision trees.
 
-Each node has a user-defined importance factor (0.0->1.0) and there is a user-defined
-function for each output with a user-defined dial setting that together determines
-how much of the input goes to each output.
+Each node has a user-defined importance factor (0.0->1.0) and there is a
+user-defined function for each output with a user-defined dial setting 
+that together determines how much of the input goes to each output.
 """
 import numpy as np
 
