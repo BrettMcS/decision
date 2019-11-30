@@ -1,12 +1,11 @@
 # dials.py
 """
-Class Node for creating decision trees.
-
-Each node has a user-defined importance factor (0.0->1.0) and there is a user-defined
-function for each output with a user-defined dial setting that together determines
-how much of the input goes to each output.
+Dials. Input the dial setting and get the output from.
 """
 from math import cos, pi
+
+
+#TODO: Look into providing multiple output, ensuring that the total is 1
 
 
 def duo_dial_low(dial_setting):
