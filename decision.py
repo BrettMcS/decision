@@ -1,6 +1,6 @@
 # decision.py
 """
-Classes for creating decision trees.
+Classes for creating and running decision trees.
 
 Each node has a user-defined importance factor (0.0->1.0) and there is a
 user-defined function for each output with a user-defined dial setting 
@@ -10,7 +10,9 @@ import numpy as np
 
 
 class Result:
-
+    """
+    A node that accumulates the outputs of nodes connected to it.
+    """
     def __init__(self, title):
         self.title = title
         self.total_input = 0.0
@@ -26,7 +28,10 @@ class Result:
 
 
 class Node:
-
+    """
+    A node that parcels its input into multiple outputs, also accumlating
+    the inputs.
+    """
     def __init__(self, title):
         self.title = title
         self.sub_nodes = []
