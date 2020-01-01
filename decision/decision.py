@@ -3,7 +3,7 @@
 Classes for creating and running decision trees.
 
 Each node has a user-defined importance factor (0.0->1.0) and there is a
-user-defined function for each output with a user-defined dial setting 
+user-defined function for each output with a user-defined dial setting
 that together determines how much of the input goes to each output.
 """
 import numpy as np
@@ -39,7 +39,7 @@ class Node:
         self.total_outputs = []
         self.weighters = []
         self.output_weights = []
-        self.dial = False
+        self.dial_setting = 0.5
 
     def __str__(self):
         return self.title
@@ -54,11 +54,11 @@ class Node:
         self.total_outputs = [0.0] * len(self.total_outputs)
 
     def set_dial(self, dial):
-        self.dial = dial
+        self.dial_setting = dial
         self.output_weights = np.array([wtr(dial) for wtr in self.weighters])
 
-    def activate(self, input_value=1.0):
-        if self.dial:
+    def activate(self, input_value):
+        if self.sub_nodes:
             outputs = input_value * self.output_weights
             for output, sub_node in zip(outputs, self.sub_nodes):
                 sub_node.activate(output)
@@ -67,5 +67,5 @@ class Node:
 
 
 def clear_nodes(nodes):
-    for node in nodes:
+    for node in nodes.values():
         node.clear_node()

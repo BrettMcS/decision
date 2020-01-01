@@ -1,5 +1,8 @@
 """System test for decision.py"""
 
+import sys
+sys.path.insert(0, '..\\decision')
+
 from decision import Node, Result
 import dials
 
